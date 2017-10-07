@@ -1,15 +1,15 @@
 class MarketCustomer {
 
     constructor(argv) {
-        this.cash = argv;
+        this.cash = argv
     }
 
     buyBottles() {
         const newBottles = Math.trunc(this.cash / 2)
         const cost = newBottles * 2
 
-        this.cash -= cost;
-        this.totalBottles = this.remainingBottles = this.remainingCaps = newBottles;
+        this.cash -= cost
+        this.totalBottles = this.remainingBottles = this.remainingCaps = newBottles
     }
 
     recycleBottles() {
@@ -57,7 +57,7 @@ class MarketCustomer {
 
     provideTotals(withText) {
         if (!withText) {
-            const arr = [
+            return [
                 this.cash,
                 this.totalBottles,
                 this.remainingBottles,
@@ -66,19 +66,15 @@ class MarketCustomer {
                 this.capsToBottles
             ];
 
-            return arr;
-
         } else {
-            const str = "TOTAL BOTTLES: " + this.totalBottles + "\n" +
-                        "REMAINING BOTTLES: " + this.remainingBottles + "\n" +
-                        "REMAINING CAPS: " + this.remainingCaps + "\n" +
-                        "TOTAL EARNED:" + "\n" +
-                        "  BOTTLES: " + this.bottlesToBottles + "\n" +
-                        "  CAPS: " + this.capsToBottles;
-
-            return str;
+            return  "TOTAL BOTTLES: " + this.totalBottles + "\n" +
+                    "REMAINING BOTTLES: " + this.remainingBottles + "\n" +
+                    "REMAINING CAPS: " + this.remainingCaps + "\n" +
+                    "TOTAL EARNED:" + "\n" +
+                    "  BOTTLES: " + this.bottlesToBottles + "\n" +
+                    "  CAPS: " + this.capsToBottles;
         }
     }
 }
 
-module.exports = MarketCustomer;
+module.exports = MarketCustomer
