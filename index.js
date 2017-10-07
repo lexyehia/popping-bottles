@@ -2,6 +2,30 @@ class MarketCustomer {
 
     constructor(argv) {
         this.cash = argv
+        this.maximizeBottles()
+    }
+
+    maximizeBottles() {
+        const self = this
+
+        self.buyBottles()
+        recursiveRecycling()
+
+        function recursiveRecycling() {
+            if (self.remainingBottles >= 2) {
+                self.recycleBottles()
+            }
+
+            if (self.remainingCaps >= 4) {
+                self.recycleCaps()
+            }
+
+            if (self.remainingBottles < 2 && self.remainingCaps < 4) {
+                return
+            } else {
+                recursiveRecycling()
+            }
+        }
     }
 
     buyBottles() {
@@ -30,29 +54,6 @@ class MarketCustomer {
         this.capsToBottles = (this.capsToBottles || 0) + newBottles
         this.remainingBottles += newBottles
         this.remainingCaps += newBottles - usedCaps
-    }
-
-    maximizeBottles() {
-        const self = this
-
-        self.buyBottles()
-        recursiveRecycling()
-
-        function recursiveRecycling() {
-            if (self.remainingBottles >= 2) {
-                self.recycleBottles()
-            }
-
-            if (self.remainingCaps >= 4) {
-                self.recycleCaps()
-            }
-
-            if (self.remainingBottles < 2 && self.remainingCaps < 4) {
-                return
-            } else {
-                recursiveRecycling()
-            }
-        }
     }
 
     provideTotals(withText) {
