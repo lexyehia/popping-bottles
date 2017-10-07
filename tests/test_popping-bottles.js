@@ -33,9 +33,12 @@ describe("The Market Customer class", () => {
     })
 
     it("should provide an array of valid numbers as totals output", () => {
-        let newCustomer = new MarketCustomer(10)
-        newCustomer.provideTotals().forEach((n) => {
-            assert.isAtLeast(n, 0);
-        })
+        let newCustomer = new MarketCustomer(40)
+        const arr = newCustomer.provideTotals(false)
+        assert.equal(arr[1], 75)
+        assert.equal(arr[2], 1)
+        assert.equal(arr[3], 3)
+        assert.equal(arr[4], 37)
+        assert.equal(arr[5], 18)
     })
 })
